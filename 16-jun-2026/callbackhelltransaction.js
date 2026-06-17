@@ -121,9 +121,9 @@ function getTransaction(transactionId, callback) {
         callback(transaction)
     }, 5000)
 }
-getUser('sagar05@yopmail.com', (user) => {
-    console.log(user)
+getUser('ram01@yopmail.com', (user) => {
+    console.log("User Details = ",user)
     getTransaction(user.transactionId, (transaction) => {
-        console.log(transaction)
+        console.log("Transaction Details = ",transaction)
     })
 })
