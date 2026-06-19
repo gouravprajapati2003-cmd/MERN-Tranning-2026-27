@@ -72,8 +72,6 @@ function getEmployee(id) {
             }
         }, 5000)
     });
-
-
     return pr;
 }
 function getBasicSalary(post) {
