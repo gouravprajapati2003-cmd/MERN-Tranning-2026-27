@@ -82,7 +82,7 @@ function getCalculateSalary(basicSalary, hra) {
             let grossSalary = 0;
                 grossSalary = basicSalary + hra + basicSalary *.10;
                 resolve(grossSalary)
-        }, 0.500)
+        }, 500)
     })
 }
 async function salarySummary() {
