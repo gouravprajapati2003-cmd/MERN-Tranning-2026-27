@@ -33,7 +33,7 @@ let employees = [
     },
 ]
 function getEmployee(id) {
-    return pr = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             let emp = employees.find((employee) => employee.eid === id)
             if(emp) {
@@ -45,7 +45,7 @@ function getEmployee(id) {
     });
 }
 function getBasicSalary(post) {
-return pr = new Promise((resolve, reject) => {
+return new Promise((resolve, reject) => {
     setTimeout(() => {
         let basicSalary = 0;
         if(post == 'CEO') {
@@ -62,7 +62,7 @@ return pr = new Promise((resolve, reject) => {
 })
 }
 function getHra(basicSalary) {
-    return pr = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         let hra = 0;
         setTimeout(() => {
             if(basicSalary > 80000) {
@@ -77,7 +77,7 @@ function getHra(basicSalary) {
     })
 }
 function getCalculateSalary(basicSalary, hra) {
-    return pr = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             let grossSalary = 0;
                 grossSalary = basicSalary + hra + basicSalary *.10;
