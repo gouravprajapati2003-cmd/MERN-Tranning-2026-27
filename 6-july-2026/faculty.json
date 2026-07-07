@@ -1,0 +1,51 @@
+[
+    {
+        "facultyId": 1,
+        "first_name": "Rory",
+        "last_name": "Dureden",
+        "email": "rdureden0@apple.com",
+        "gender": "Male",
+        "Salary": 12000
+    },
+    {
+        "facultyId": 2,
+        "first_name": "Leontine",
+        "last_name": "Emmott",
+        "email": "lemmott1@tinypic.com",
+        "gender": "Female",
+        "Salary": 13000
+    },
+    {
+        "facultyId": 3,
+        "first_name": "Herbert",
+        "last_name": "Khristoforov",
+        "email": "hkhristoforov5@timesonline.co.uk",
+        "gender": "Male",
+        "Salary": 15000
+    },
+    {
+        "facultyId": 4,
+        "first_name": "Ariella",
+        "last_name": "Bonus",
+        "email": "abonus3@elegantthemes.com",
+        "gender": "Female",
+        "Salary": 17000
+    },
+    {
+         "facultyId": 5,
+        "first_name": "Leon",
+        "last_name": "Emmily",
+        "email": "lemmott1@tinypic.com",
+        "gender": "Female",
+        "Salary": 18000
+    },
+    {
+        "facultyId": 6,
+        "first_name": "Naushad",
+        "last_name": "Imam",
+        "email": "naushadimam8899@gmail.com",
+        "gender": "Male",
+        "Salary": 20000
+    }
+    
+]
