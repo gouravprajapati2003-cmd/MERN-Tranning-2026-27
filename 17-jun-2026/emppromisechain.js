@@ -10,7 +10,7 @@ let employees = [
         ename: 'Raju',
         mobileno: 9039944884,
         post: 'Developer'
-        
+
     },
     {
         eid: 'e003',
@@ -65,7 +65,7 @@ function getEmployee(id) {
     let pr = new Promise((resolve, reject) => {
         setTimeout(() => {
             let emp = employees.find((employee) => employee.eid === id);
-            if(!emp) {
+            if (!emp) {
                 reject("Employee Not Found....")
             } else {
                 resolve(emp);
@@ -78,17 +78,17 @@ function getBasicSalary(post) {
     let pr = new Promise((resolve, reject) => {
         let basicSalary = 0;
         setTimeout(() => {
-            if(post == 'CEO') {
-            basicSalary = 56000;
-        } else if(post == 'Manager') {
-            basicSalary = 50000;
-        } else if(post == 'HR') {
-            basicSalary = 30000;
-        } else {
-            basicSalary = 25000
-        }
-        resolve(basicSalary)
-        }, 3000)  
+            if (post == 'CEO') {
+                basicSalary = 56000;
+            } else if (post == 'Manager') {
+                basicSalary = 50000;
+            } else if (post == 'HR') {
+                basicSalary = 30000;
+            } else {
+                basicSalary = 25000
+            }
+            resolve(basicSalary)
+        }, 3000)
     });
     return pr;
 }
@@ -103,17 +103,17 @@ function getCalculateSalary(basicSalary) {
     return pr;
 }
 getEmployee('e001')
-.then((emp) => {
-    console.log(emp)
-    return getBasicSalary(emp.post)
-})
-.then((basicSalary) => {
-    console.log(basicSalary)
-    return getCalculateSalary(basicSalary)
-}) 
-.then((grossSalary) => {
-    console.log(grossSalary)
-})
-.catch((error) => {
-    console.log(error);
-})
+    .then((emp) => {
+        console.log(emp)
+        return getBasicSalary(emp.post)
+    })
+    .then((basicSalary) => {
+        console.log(basicSalary)
+        return getCalculateSalary(basicSalary)
+    })
+    .then((grossSalary) => {
+        console.log(grossSalary)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
