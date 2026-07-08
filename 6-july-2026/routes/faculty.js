@@ -43,7 +43,7 @@ router.put('/edit/faculty/:id', (req, res) => {
 })
 
 // /delete/faculty/:id, delete -> postman, http://localhost:3000/delete/faculty/6
- app.delete('/delete/faculty/:id', (req, res) => {
+ router.delete('/delete/faculty/:id', (req, res) => {
     let id = req.params.id;
     console.log(id)
     let index = faculties.findIndex((faculty) => faculty.facultyId == id)
