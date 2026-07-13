@@ -35,10 +35,43 @@ function addStudent(req, res) {
 }
 
 function editStudent(req, res) {
-
+    try {
+        let rollNo = req.params.rollNo
+        let index = students.findIndex((student) => student.rollNo == rollNo);
+        students[index].email = "vinodsharma231@gmail.com";
+        fs.writeFile('student.json', JSON.stringify(students), (err) => {
+            if (err) {
+                console.log("Data not updated...")
+            } else {
+                res.end("Data updated Successfully...");
+            }
+        })
+    } catch (err) {
+        console.log(err);
+    }
 }
+
+function deleteStudent(req, res) {
+    try {
+        let rollNo = req.params.rollNo
+        let index = students.findIndex((student) => student.rollNo == rollNo);
+        students.splice(index, 1)
+        fs.writeFile('student.json', JSON.stringify(students), (err) => {
+            if (err) {
+                console.log("Data not Deleted...")
+            } else {
+                res.end("Data Deleted Successfully...");
+            }
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 module.exports = {
     getStudents,
     getStudentById,
-    addStudent
+    addStudent,
+    editStudent,
+    deleteStudent
 }
