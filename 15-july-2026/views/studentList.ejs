@@ -40,7 +40,15 @@
                     <td>
                         <%= student.mobileNo %>
                     </td>
-                    <td></td>
+                    <td>
+                        <a href="/edit/student/<%= student.rollNo %>" class="btn btn-warning">
+                            Edit Student
+                        </a>
+                    
+                        <button class="btn btn-danger">
+                            Delete Student
+                        </button>
+                    </td>
                 </tr>
            <% }) %>
         </table>

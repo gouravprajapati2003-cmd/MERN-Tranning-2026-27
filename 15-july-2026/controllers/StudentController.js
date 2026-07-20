@@ -22,7 +22,41 @@ const addStudent = async (req, res) => {
     }
 }
 
+const editStudent = async (req, res) => {
+    try {
+        let rollNo = req.params.rollNo;
+
+        let student = await Student.findOne({ rollNo: rollNo });
+
+        res.render('editStudent', {
+            student: student
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const updateStudent = async (req, res) => {
+    try {
+
+        let rollNo = req.params.rollNo;
+
+        await Student.findOneAndUpdate(
+            { rollNo: rollNo },
+            req.body
+        );
+
+        res.redirect('/students');
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     addStudent,
     getStudents,
+    editStudent,
+    updateStudent
 }
