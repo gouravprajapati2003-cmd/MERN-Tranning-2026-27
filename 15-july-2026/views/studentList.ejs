@@ -41,7 +41,7 @@
                         <%= student.mobileNo %>
                     </td>
                     <td>
-                        <a href='student/edit/page/<%= student._id%>' class="btn btn-primary">
+                        <a href='/student/edit/page/<%= student._id%>' class="btn btn-primary">
                             Edit Student
                         </a>
                     
@@ -52,6 +52,9 @@
                 </tr>
            <% }) %>
         </table>
+        <div class="text-center mt-3">
+            <a href="/add/student" class="btn btn-success">Add Student</a>
+        </div>
     </div>
 </div> 
 <%- include('./base/footer.ejs')%>

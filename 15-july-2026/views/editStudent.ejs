@@ -1,42 +1,101 @@
-<%- include('./base/header.ejs')%>
+<%- include('./base/header.ejs') %>
+
     <div class="container">
         <div class="alert bg-success my-3">
             <h4 class="text-center text-white">Edit Student</h4>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col"></div>
+
             <div class="col">
+
                 <form action="/edit/student/<%= student._id %>" method="post">
-                    <div class="mt-1">
-                        <label class="form-label">Roll No:</label>
-                        <input type="text" class="form-control" placeholder="Enter Roll No:" name="rollNo"
-                            value="<%= student.rollNo%>" />
+
+                    <!-- Roll No -->
+                    <div class="mt-2">
+                        <label class="form-label">
+                            Roll No <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control" placeholder="Enter Roll No" name="rollNo"
+                            value="<%= oldData.rollNo || student.rollNo %>">
+
+                        <small class="text-danger">
+                            <%= errors.rollNo ? errors.rollNo.msg : "" %>
+                        </small>
                     </div>
-                    <div class="mt-1">
-                        <label class="form-label">Student Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter Student Name:" name="studentName" value="<%= student.studentName%>"/>
+
+                    <!-- Student Name -->
+                    <div class="mt-2">
+                        <label class="form-label">
+                            Student Name <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control" placeholder="Enter Student Name" name="studentName"
+                            value="<%= oldData.studentName || student.studentName %>">
+
+                        <small class="text-danger">
+                            <%= errors.studentName ? errors.studentName.msg : "" %>
+                        </small>
                     </div>
-                    <div class="mt-1">
-                        <label class="form-label">Father Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter Father Name:" name="fatherName" value="<%=student.fatherName%>"/>
+
+                    <!-- Father Name -->
+                    <div class="mt-2">
+                        <label class="form-label">
+                            Father Name <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control" placeholder="Enter Father Name" name="fatherName"
+                            value="<%= oldData.fatherName || student.fatherName %>">
+
+                        <small class="text-danger">
+                            <%= errors.fatherName ? errors.fatherName.msg : "" %>
+                        </small>
                     </div>
-                    <div class="mt-1">
-                        <label class="form-label">Aadhar Card No:</label>
-                        <input type="text" class="form-control" placeholder="Enter Aadhar Card No:"
-                            name="aadharCardNo" value="<%=student.aadharCardNo%>"/>
+
+                    <!-- Aadhaar -->
+                    <div class="mt-2">
+                        <label class="form-label">
+                            Aadhaar Card No <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control" placeholder="Enter Aadhaar Card No" name="aadharCardNo"
+                            value="<%= oldData.aadharCardNo || student.aadharCardNo %>">
+
+                        <small class="text-danger">
+                            <%= errors.aadharCardNo ? errors.aadharCardNo.msg : "" %>
+                        </small>
                     </div>
-                    <div class="mt-1">
-                        <label class="form-label">Mobile No:</label>
-                        <input type="text" class="form-control" placeholder="Enter Mobile No:" name="mobileNo" value="<%=student.mobileNo%>"/>
+
+                    <!-- Mobile -->
+                    <div class="mt-2">
+                        <label class="form-label">
+                            Mobile No <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control" placeholder="Enter Mobile No" name="mobileNo"
+                            value="<%= oldData.mobileNo || student.mobileNo %>">
+
+                        <small class="text-danger">
+                            <%= errors.mobileNo ? errors.mobileNo.msg : "" %>
+                        </small>
                     </div>
-                    <div class="text-center mt-2">
-                        <input type="submit" class="btn btn-success" value="Edit Student">
+
+                    <div class="text-center mt-4">
+                        <input type="submit" class="btn btn-success" value="Update Student">
+                        <a href="/students" class="btn btn-primary">Cancel</a>
+                    </div>
+
                 </form>
+
             </div>
+
+            <div class="col"></div>
+
         </div>
-        <div class="col"></div>
     </div>
-    </div>
-    <%- include('./base/footer.ejs')%>
+
+    <%- include('./base/footer.ejs') %>

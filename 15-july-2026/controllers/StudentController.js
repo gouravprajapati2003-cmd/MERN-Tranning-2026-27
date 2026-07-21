@@ -13,7 +13,7 @@ const getStudents = async (req, res) => {
 
 const addStudent = async (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         let student = new Student(req.body);
         await student.save();
         res.render('addStudentSuccess');
@@ -27,8 +27,10 @@ const getStudentForEdit = async (req, res) => {
         let id = req.params.id;
         let student = await Student.findOne({ _id: id });
        // console.log(student);
-        res.render('editStudent', {
-            student: student
+        res.render("editStudent", {
+            student: student,
+            errors: {},
+            oldData: {}
         });
     } catch (error) {
         console.log(error);
@@ -38,7 +40,7 @@ const getStudentForEdit = async (req, res) => {
 const editStudent = async (req, res) => {
     try {
         let id = req.params.id;
-        console.log(req.body);
+        //console.log(req.body);
         let student = await Student.findOne({ _id: id})
         student.rollNo = req.body.rollNo;
         student.studentName = req.body.studentName;
