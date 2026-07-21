@@ -22,33 +22,47 @@ const addStudent = async (req, res) => {
     }
 }
 
-const editStudent = async (req, res) => {
+const getStudentForEdit = async (req, res) => {
     try {
-        let rollNo = req.params.rollNo;
-
-        let student = await Student.findOne({ rollNo: rollNo });
-
+        let id = req.params.id;
+        let student = await Student.findOne({ _id: id });
+       // console.log(student);
         res.render('editStudent', {
             student: student
         });
-
     } catch (error) {
         console.log(error);
     }
 }
 
-const updateStudent = async (req, res) => {
+const editStudent = async (req, res) => {
     try {
+        let id = req.params.id;
+        console.log(req.body);
+        let student = await Student.findOne({ _id: id})
+        student.rollNo = req.body.rollNo;
+        student.studentName = req.body.studentName;
+        student.fatherName = req.body.fatherName;
+        student.aadharCardNo = req.body.aadharCardNo;
+        student.mobileNo = req.body.mobileNo;
+        await student.save();
+        let students = await Student.find({})
+        res.render('studentList', {
+            students: students
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-        let rollNo = req.params.rollNo;
-
-        await Student.findOneAndUpdate(
-            { rollNo: rollNo },
-            req.body
-        );
-
-        res.redirect('/students');
-
+const deleteStudent = async (req, res) => {
+    try {
+        let id = req.params.id;
+        await Student.deleteOne({ _id: id});
+        let students = await Student.find({})
+        res.render('studentList', {
+            students: students
+        })
     } catch (error) {
         console.log(error);
     }
@@ -57,6 +71,7 @@ const updateStudent = async (req, res) => {
 module.exports = {
     addStudent,
     getStudents,
+    getStudentForEdit,
     editStudent,
-    updateStudent
+    deleteStudent
 }

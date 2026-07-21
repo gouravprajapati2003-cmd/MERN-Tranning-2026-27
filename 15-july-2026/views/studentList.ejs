@@ -41,13 +41,13 @@
                         <%= student.mobileNo %>
                     </td>
                     <td>
-                        <a href="/edit/student/<%= student.rollNo %>" class="btn btn-warning">
+                        <a href='student/edit/page/<%= student._id%>' class="btn btn-primary">
                             Edit Student
                         </a>
                     
-                        <button class="btn btn-danger">
+                        <a href='/student/delete/<%= student._id%>' class="btn btn-danger">
                             Delete Student
-                        </button>
+                        </a>
                     </td>
                 </tr>
            <% }) %>
