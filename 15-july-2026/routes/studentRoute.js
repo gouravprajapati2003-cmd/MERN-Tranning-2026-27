@@ -20,14 +20,8 @@ route.get('/students', (req, res) => {
     StudentController.getStudents(req, res);
 })
 
-// route.post('/add/student', (req, res) => {
-//     StudentController.addStudent(req, res);
-// })
-
-//route.post("/add/student",studentValidation, StudentController.addStudent);     // without using middleware file
-
 route.post(
-    "/add/student",           // with using middleware file
+    "/add/student",           
     studentValidation,
     validationMiddleware("home"),
     StudentController.addStudent
@@ -37,13 +31,9 @@ route.get('/student/edit/page/:id', (req, res) => {
     StudentController.getStudentForEdit(req, res);
 });
 
-// route.post('/edit/student/:id', (req, res) => {
-//     StudentController.editStudent(req, res);
-// });
-
 route.post(
     "/edit/student/:id",
-    studentValidation,                    // with using middleware file   
+    studentValidation,                       
     validationMiddleware("editStudent"),
     StudentController.editStudent
 );
